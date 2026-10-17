@@ -34,7 +34,7 @@ Movie soundtracks aren't made for car speakers, though, so the audio features ex
 
 I have a shelf of DVDs I still love, and a 150" projector screen that shows every flaw in them. DVD video is 480p; blown up to that size it looks soft, blocky and, for interlaced discs, full of combing lines.
 
-The upscaler is built to make those discs watchable again:
+The upscaler is built to make those movies watchable again:
 
 - **Deinterlacing, correct aspect ratio and colour** — DVD quirks (interlaced fields, non-square pixels, older colour standards) are handled automatically, so the picture isn't stretched, striped or off-colour.
 - **AI upscaling** — Real-ESRGAN restores sharper edges and cleaner texture than a plain resize, which matters most on low-resolution sources at big-screen size.
