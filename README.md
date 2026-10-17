@@ -15,6 +15,31 @@ Built with SwiftUI. All processing happens locally on your Mac.
 
 <sub>Screenshots use generated test media (ffmpeg test patterns and synthetic audio) and fictional titles.</sub>
 
+## Why Movie Audio?
+
+I built this for two things I actually do.
+
+### Great movies are worth listening to
+
+Some films carry a screenplay so strong — the dialogue, the performances, the score — that you can enjoy them without the picture at all. I listen to them while driving. It beats the boredom of a long drive, and because it's audio only, my eyes stay on the road. A movie I already love becomes something closer to a radio drama.
+
+Movie soundtracks aren't made for car speakers, though, so the audio features exist to fix that:
+
+- **Boost dialogue** — in a surround mix, voices sit in the centre channel and get buried when folded down to stereo. Lifting that channel keeps every line clear over road noise.
+- **Night mode** — whispers that vanish and explosions that make you jump for the volume knob are a bad combination at 70 mph. This evens them out.
+- **Remove silent gaps** — long stretches where only the picture tells the story are dead air without it. Shortening them keeps the story moving.
+- **Trim** — cut opening logos, end credits, or a scene that only works on screen.
+
+### Old DVDs deserve a big screen
+
+I have a shelf of DVDs I still love, and a 150" projector screen that shows every flaw in them. DVD video is 480p; blown up to that size it looks soft, blocky and, for interlaced discs, full of combing lines.
+
+The upscaler is built to make those discs watchable again:
+
+- **Deinterlacing, correct aspect ratio and colour** — DVD quirks (interlaced fields, non-square pixels, older colour standards) are handled automatically, so the picture isn't stretched, striped or off-colour.
+- **AI upscaling** — Real-ESRGAN restores sharper edges and cleaner texture than a plain resize, which matters most on low-resolution sources at big-screen size.
+- **Honest defaults and estimates** — 480p sources default to 1080p, because 4K adds no real detail for them, and the app tells you how long a job will take and how much disk it needs before you start.
+
 ## Features
 
 ### Extract Audio
