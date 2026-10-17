@@ -215,11 +215,23 @@ final class Upscaler: ObservableObject {
     // MARK: AI engine
 
     static let engineURL = URL(string: "https://github.com/xinntao/Real-ESRGAN/releases/download/v0.2.5.0/realesrgan-ncnn-vulkan-20220424-macos.zip")!
-    static var engineDir: URL {
+    nonisolated static var engineDir: URL {
         FileManager.default.urls(for: .applicationSupportDirectory, in: .userDomainMask)[0]
-            .appendingPathComponent("MovieAudio/realesrgan", isDirectory: true)
+            .appendingPathComponent("ReelKit/realesrgan", isDirectory: true)
     }
-    static var engineBinary: URL { engineDir.appendingPathComponent("realesrgan-ncnn-vulkan") }
+
+    /// Moves an engine downloaded when the app was called "Movie Audio" so it isn't fetched again.
+    nonisolated static func migrateLegacyEngine() {
+        let fm = FileManager.default
+        let legacyRoot = engineDir.deletingLastPathComponent().deletingLastPathComponent()
+            .appendingPathComponent("MovieAudio", isDirectory: true)
+        let legacy = legacyRoot.appendingPathComponent("realesrgan", isDirectory: true)
+        guard fm.fileExists(atPath: legacy.path), !fm.fileExists(atPath: engineDir.path) else { return }
+        try? fm.createDirectory(at: engineDir.deletingLastPathComponent(), withIntermediateDirectories: true)
+        try? fm.moveItem(at: legacy, to: engineDir)
+        if (try? fm.contentsOfDirectory(atPath: legacyRoot.path))?.isEmpty == true { try? fm.removeItem(at: legacyRoot) }
+    }
+    nonisolated static var engineBinary: URL { engineDir.appendingPathComponent("realesrgan-ncnn-vulkan") }
 
     func installEngine() {
         installingEngine = true
@@ -334,7 +346,7 @@ final class Upscaler: ObservableObject {
                        _ t: (w: Int, h: Int), _ output: URL) async throws {
         let fm = FileManager.default
         let ff = "\(Extractor.ffmpegDir!)/ffmpeg"
-        let work = fm.temporaryDirectory.appendingPathComponent("MovieAudio-upscale-\(UUID().uuidString)")
+        let work = fm.temporaryDirectory.appendingPathComponent("ReelKit-upscale-\(UUID().uuidString)")
         let frames = work.appendingPathComponent("frames"), chunkIn = work.appendingPathComponent("in")
         let chunkOut = work.appendingPathComponent("out"), segments = work.appendingPathComponent("seg")
         for d in [frames, chunkIn, chunkOut, segments] { try fm.createDirectory(at: d, withIntermediateDirectories: true) }

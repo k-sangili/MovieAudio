@@ -1,4 +1,4 @@
-// Renders the Movie Audio app icon: a film strip that turns into a sound waveform.
+// Renders the ReelKit app icon: a film strip that turns into a sound waveform.
 // Usage: swift Icon/make_icon.swift <output.png>   (1024×1024)
 import AppKit
 

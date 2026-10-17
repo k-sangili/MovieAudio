@@ -60,7 +60,7 @@ final class TrimModel: ObservableObject {
         state = .analyzing(0)
 
         let preview = FileManager.default.temporaryDirectory
-            .appendingPathComponent("MovieAudio-preview-\(UUID().uuidString).m4a")
+            .appendingPathComponent("ReelKit-preview-\(UUID().uuidString).m4a")
         previewURL = preview
 
         // One decode pass, two outputs: a small mono preview for playback, and raw PCM for the waveform.

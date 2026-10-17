@@ -543,9 +543,11 @@ struct AudioView: View {
 }
 
 @main
-struct MovieAudioApp: App {
+struct ReelKitApp: App {
+    init() { Upscaler.migrateLegacyEngine() }
+
     var body: some Scene {
-        WindowGroup("Movie Audio") {
+        WindowGroup("ReelKit") {
             RootView()
                 .onAppear {
                     if Extractor.ffmpegDir == nil {
