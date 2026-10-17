@@ -561,9 +561,10 @@ struct UpscaleView: View {
             Toggle("Only part of the video", isOn: $u.useRange)
             if u.useRange {
                 HStack {
-                    TextField("Start", text: $u.startText).frame(width: 90)
+                    // Labels hidden: inside a grouped Form they would otherwise stack above the fields.
+                    TextField("Start", text: $u.startText).labelsHidden().frame(width: 90)
                     Text("to")
-                    TextField("End", text: $u.endText).frame(width: 90)
+                    TextField("End", text: $u.endText).labelsHidden().frame(width: 90)
                     Text("h:mm:ss").font(.caption).foregroundStyle(.secondary)
                     Spacer()
                     if let r = u.range { Text(formatTime(r.length)).monospacedDigit().foregroundStyle(.secondary) }
