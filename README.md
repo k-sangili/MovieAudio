@@ -32,7 +32,7 @@ Movie soundtracks aren't made for car speakers, though, so the audio features ex
 
 ### Old DVDs deserve a big screen
 
-I have a shelf of DVDs I still love, and a 150" projector screen that shows every flaw in them. DVD video is 480p; blown up to that size it looks soft, blocky and, for interlaced discs, full of combing lines.
+I have a shelf of DVDs I still love, and a 150" projector screen that shows every flaw in them. DVD video is 480p; blown up to that size it looks soft, blocky and, for interlaced video, full of combing lines.
 
 The upscaler is built to make those movies watchable again:
 
